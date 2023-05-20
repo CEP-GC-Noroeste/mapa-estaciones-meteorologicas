@@ -3,7 +3,9 @@
 <head>
     <title>Mapa del Norte de Gran Canaria</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.fullscreen/Control.FullScreen.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.fullscreen/Control.FullScreen.js"></script>
     <style>
         #mapid { 
             position: absolute;
@@ -20,17 +22,18 @@
 <body>
     <div id="mapid"></div>
     <script>
-        var map = L.map('mapid').setView([28.15, -15.65], 11);
+        var map = L.map('mapid', {
+            fullscreenControl: true,
+        }).setView([28.15, -15.65], 11);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
             maxZoom: 19,
         }).addTo(map);
 
-        // Crear un array de diccionarios para los marcadores
         var marcadores = [
 
-            {nombre: "IES Santiago Santana", municipio: "Arucas", coordenadas: [28.115666146527005, -15.510671244854954], codigo: "0812576475"},
+     {nombre: "IES Santiago Santana", municipio: "Arucas", coordenadas: [28.115666146527005, -15.510671244854954], codigo: "0812576475"},
             {nombre: "CEIP Agustín Hdez Díaz", municipio: "Moya", coordenadas: [28.112922995729267, -15.582858021546164], codigo: "0072329617"},
             {nombre: "IES Doramas", municipio: "Moya", coordenadas: [28.114583574766293, -15.573618831335683], codigo: "5899117986"},
             {nombre: "IES Villa de Firgas", municipio: "Firgas", coordenadas: [28.11063490451812, -15.561660833187231], codigo: "6444548125"},
@@ -49,9 +52,9 @@
             {nombre: "IES Teror", municipio: "Teror", coordenadas: [28.060037636897604, -15.543846119696969], codigo: "0371428440"}
 
 
+
         ];
 
-        // Añadir los marcadores al mapa
         for (var i = 0; i < marcadores.length; i++) {
             var marcador = marcadores[i];
             var marker = L.marker(marcador.coordenadas).addTo(map);
