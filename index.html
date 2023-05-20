@@ -20,7 +20,7 @@
 <body>
     <div id="mapid"></div>
     <script>
-        var map = L.map('mapid').setView([28.15, -15.65], 10);
+        var map = L.map('mapid').setView([28.15, -15.65], 11);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
@@ -29,17 +29,34 @@
 
         // Crear un array de diccionarios para los marcadores
         var marcadores = [
-            {nombre: "Gáldar", coordenadas: [28.15, -15.65], html: '<a href="https://app.weathercloud.net/d8302679645"><img src="https://app.weathercloud.net/device/sticker/8302679645"></a>'},
-            {nombre: "Teror", coordenadas: [28.0667, -15.5500], html: '<a href="https://app.weathercloud.net/d8302679645"><img src="https://app.weathercloud.net/device/sticker/8302679645"></a>'}
+
+            {nombre: "IES Santiago Santana", municipio: "Arucas", coordenadas: [28.115666146527005, -15.510671244854954], codigo: "0812576475"},
+            {nombre: "CEIP Agustín Hdez Díaz", municipio: "Moya", coordenadas: [28.112922995729267, -15.582858021546164], codigo: "0072329617"},
+            {nombre: "IES Doramas", municipio: "Moya", coordenadas: [28.114583574766293, -15.573618831335683], codigo: "5899117986"},
+            {nombre: "IES Villa de Firgas", municipio: "Firgas", coordenadas: [28.11063490451812, -15.561660833187231], codigo: "6444548125"},
+            {nombre: "CEIP La Ladera", municipio: "La Aldea De San Nicolás", coordenadas: [27.985529353142045, -15.788686927638267], codigo: "1176904045"},
+            {nombre: "CEO Rey Juan Carlos", municipio: "Valleseco", coordenadas: [28.048063914004842, -15.57608217366661], codigo: "7545631474"},
+            {nombre: "CEIP Los Quintana", municipio: "Gáldar", coordenadas: [28.11690896745015, -15.668876004351059], codigo: "4937896000"},
+            {nombre: "CEIP Artenara", municipio: "Artenara", coordenadas: [28.021330454363714, -15.650418690862644], codigo: "6677261936"},
+            {nombre: "CEIP Trapiche", municipio: "Arucas", coordenadas: [28.135474180627313, -15.538037904350324], codigo: "1628385614"},
+            {nombre: "CEIP Agaete Pepe Dámaso", municipio: "Agaete", coordenadas: [28.105195732091644, -15.70345874667971], codigo: "8709904980"},
+            {nombre: "CEIP Miguel de Santiago", municipio: "Guía", coordenadas: [28.136213567293474, -15.629443346678448], codigo: "5809973024"},
+            // {nombre: "IES Santa María de Guía", municipio: "Guía", coordenadas: [28.14012, -15.62784], codigo: "SIN ESTACION"},
+            {nombre: "CEIP Miraflor", municipio: "Teror", coordenadas: [28.072736474286977, -15.52181074853237], codigo: "FALTA CODIGO"},
+            {nombre: "IES La Aldea de San Nicolás", municipio: "La Aldea de San Nicolás", coordenadas: [27.979689271100437, -15.782259704356562], codigo: "7901818023"},
+            {nombre: "CEIP Huertas del Palmar", municipio: "Teror", coordenadas: [28.081806155375315, -15.536831433188365], codigo: "3722014768"},
+            // {nombre: "CEIP En Arucas", municipio: "Arucas", coordenadas: [28.117403790586526, -15.52117224667923], codigo: "SIN ESTACION"},
+            {nombre: "IES Teror", municipio: "Teror", coordenadas: [28.060037636897604, -15.543846119696969], codigo: "0371428440"}
+
+
         ];
 
         // Añadir los marcadores al mapa
         for (var i = 0; i < marcadores.length; i++) {
             var marcador = marcadores[i];
             var marker = L.marker(marcador.coordenadas).addTo(map);
-            marker.bindPopup("<b>" + marcador.nombre + "</b><br>" + marcador.html);
+            marker.bindPopup(`<b>${marcador.nombre}</b> (${marcador.municipio})<br><a href="https://app.weathercloud.net/d${marcador.codigo}"><img src="https://app.weathercloud.net/device/sticker/${marcador.codigo}"></a>`);
         }
     </script>
 </body>
 </html>
-
