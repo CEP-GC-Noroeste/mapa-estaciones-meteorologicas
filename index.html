@@ -55,7 +55,7 @@
         for (var i = 0; i < marcadores.length; i++) {
             var marcador = marcadores[i];
             var marker = L.marker(marcador.coordenadas).addTo(map);
-            marker.bindPopup(`<b>${marcador.nombre}</b> (${marcador.municipio})<br><a href="https://app.weathercloud.net/d${marcador.codigo}"><img src="https://app.weathercloud.net/device/sticker/${marcador.codigo}" target="_blank"></a>`);
+            marker.bindPopup(`<b>${marcador.nombre}</b> (${marcador.municipio})<br><a href="https://app.weathercloud.net/d${marcador.codigo}" target="_blank"><img src="https://app.weathercloud.net/device/sticker/${marcador.codigo}"></a>`);
         }
     </script>
 </body>
