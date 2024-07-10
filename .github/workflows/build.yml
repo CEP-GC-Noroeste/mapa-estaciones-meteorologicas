@@ -20,5 +20,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           allow_empty_commit: true
           publish_dir: .
-          cname: https://cep-gc-noroeste.github.io/mapa-estaciones-meteorologicas/
+          cname: yanimap.ernesto.es
           enable_jekyll: false
